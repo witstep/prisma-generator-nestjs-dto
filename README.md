@@ -16,6 +16,8 @@ Generates `ConnectDTO`, `CreateDTO`, `UpdateDTO`, `DTO`, and `Entity` classes fo
 
 These classes can also be used with the built-in [ValidationPipe](https://docs.nestjs.com/techniques/validation#using-the-built-in-validationpipe) and [Serialization](https://docs.nestjs.com/techniques/serialization).
 
+This is a fork of [@clayrisser/prisma-generator-nestjs-dto](https://gitlab.com/risserlabs/nestjs/prisma-generator-nestjs-dto).
+
 This is a fork of [@brakebein/prisma-generator-nestjs-dto](https://github.com/Brakebein/prisma-generator-nestjs-dto) and adds multiple features:
 
 - add @DtoRelationAsPropertyOnCreate: optionally treat relations as class property in Create dto, and add validation(transformation) decorators.
