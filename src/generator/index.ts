@@ -27,6 +27,7 @@ interface RunParam {
   dtoSuffix: string;
   entityPrefix: string;
   entitySuffix: string;
+  clientPackage: string;
   fileNamingStyle: NamingStyle;
   classValidation: boolean;
   outputType: string;

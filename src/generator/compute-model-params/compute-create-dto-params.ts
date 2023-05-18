@@ -71,7 +71,6 @@ export const computeCreateDtoParams = ({
       classValidators?: IClassValidator[];
     } = {};
 
-    if (isReadOnly(field)) return result;
     if (isRelation(field)) {
       if (!isAnnotatedWithOneOf(field, DTO_RELATION_MODIFIERS_ON_CREATE)) {
         return result;
@@ -111,8 +110,7 @@ export const computeCreateDtoParams = ({
       if (!templateHelpers.config.noDependencies)
         concatIntoArray(relationInputType.apiExtraModels, apiExtraModels);
     }
-    if (relationScalarFieldNames.includes(name)) return result;
-
+    
     // fields annotated with @DtoReadOnly are filtered out before this
     // so this safely allows to mark fields that are required in Prisma Schema
     // as **not** required in CreateDTO
@@ -161,7 +159,6 @@ export const computeCreateDtoParams = ({
     if (hasApiProperty || annotateAllDtoProperties) {
       destruct.push('ApiProperty');
     }
-    destruct.push('getSchemaPath');
     imports.unshift({ from: '@nestjs/swagger', destruct });
   }
 
@@ -181,7 +178,7 @@ export const computeCreateDtoParams = ({
     });
   }
 
-  const importPrismaClient = makeImportsFromPrismaClient(fields);
+  const importPrismaClient = makeImportsFromPrismaClient(fields,templateHelpers);
   if (importPrismaClient) imports.unshift(importPrismaClient);
 
   return {

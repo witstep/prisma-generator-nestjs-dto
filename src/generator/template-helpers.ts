@@ -89,6 +89,7 @@ interface MakeHelpersParam {
   dtoSuffix: string;
   entityPrefix: string;
   entitySuffix: string;
+  clientPackage: string;
   transformClassNameCase?: (item: string) => string;
   transformFileNameCase?: (item: string) => string;
   classValidation: boolean;
@@ -102,6 +103,7 @@ export const makeHelpers = ({
   dtoSuffix,
   entityPrefix,
   entitySuffix,
+  clientPackage,
   transformClassNameCase = echo,
   transformFileNameCase = echo,
   classValidation,
@@ -206,6 +208,7 @@ export const makeHelpers = ({
       dtoSuffix,
       entityPrefix,
       entitySuffix,
+      clientPackage,
       classValidation,
       outputType,
       noDependencies,

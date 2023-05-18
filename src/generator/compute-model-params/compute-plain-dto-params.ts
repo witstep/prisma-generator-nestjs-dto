@@ -46,7 +46,6 @@ export const computePlainDtoParams = ({
     if (isAnnotatedWith(field, DTO_ENTITY_HIDDEN)) return result;
 
     if (isRelation(field)) return result;
-    if (relationScalarFieldNames.includes(name)) return result;
 
     if (!templateHelpers.config.noDependencies) {
       decorators.apiProperties = parseApiProperty(field, { default: false });
@@ -68,7 +67,7 @@ export const computePlainDtoParams = ({
     imports.unshift({ from: '@nestjs/swagger', destruct });
   }
 
-  const importPrismaClient = makeImportsFromPrismaClient(fields);
+  const importPrismaClient = makeImportsFromPrismaClient(fields,templateHelpers);
   if (importPrismaClient) imports.unshift(importPrismaClient);
 
   return {

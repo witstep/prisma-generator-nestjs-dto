@@ -31,6 +31,7 @@ export const generate = (options: GeneratorOptions) => {
     dtoSuffix = 'Dto',
     entityPrefix = '',
     entitySuffix = '',
+    clientPackage = '@prisma/client',
     fileNamingStyle = 'camel',
     outputType = 'class',
   } = options.generator.config;
@@ -124,6 +125,7 @@ export const generate = (options: GeneratorOptions) => {
     dtoSuffix,
     entityPrefix,
     entitySuffix,
+    clientPackage,
     fileNamingStyle,
     classValidation,
     outputType,
